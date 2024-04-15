@@ -1,0 +1,131 @@
+/* Logo Animation */
+.anim-logo a::before {
+    animation: logo-expanded 2s ease;
+}
+
+.anim-logo a::after {
+    animation: logo-expanded 2s ease;
+}
+
+.anim-logo a {
+    animation: logo-scale 2s ease;
+}
+
+
+@keyframes logo-scale {
+    0% { font-size: 0 }
+    100% { font-size: 30px }
+}
+
+@keyframes logo-expanded {
+    0% {
+        width: 100%;
+        height: 100%;
+    }
+    100% {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Title Animation */
+.anim-title::after {
+    background-color: var(--bg-black-900);
+    content: '';
+    top: 0;
+    bottom: 0;
+    right: calc(100% - 10px);
+    left: -100%;
+    position: absolute;
+}
+
+.anim-title h2 {
+    animation: title-to-right 2s ease;
+}
+
+.anim-title h2::after {
+    --width: 25px;
+    animation: title-line 3.6s ease;
+}
+
+.anim-title h2::before {
+    --width: 50px;
+    animation: title-line 3.2s ease;
+}
+
+@keyframes title-to-right {
+    20% {
+        transform: rotate3d(1, 0, 0, 90deg);
+    }
+    25% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+        transform: translateX(-250px);
+        font-style: italic;
+    }
+    80% {
+        opacity: 1;
+        transform: translateX(0);
+        font-style: italic;
+    }
+}
+
+@keyframes title-line {
+    0% { width: 0 }
+    60% { width: 0 }
+    90% { width: var(--width) }
+}
+
+/* Image Animation */
+.anim-img {
+    position: absolute;
+    height: 400px;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.anim-img>div {
+    height: 400px;
+    width: 266.66px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.anim-img>div::after {
+    content: '';
+    width: 430px;
+    height: 10px;
+    box-shadow: -4px 40px 16px 12px #ffffff30;
+    transform: rotate(45deg);
+    position: absolute;
+    left: -70px;
+    background-color: transparent;
+    animation: cross-move 9s ease infinite;
+}
+
+@keyframes cross-move {
+    0% { top: -200px }
+    40% { top: -200px }
+    60% { top: 540px }
+    100% { top: 540px }
+}
+
+/* Items display animation */
+.anim-item {
+    animation: item-display 2s ease;
+}
+
+@keyframes item-display {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
